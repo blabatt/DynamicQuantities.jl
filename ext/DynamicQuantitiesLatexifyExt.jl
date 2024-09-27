@@ -37,7 +37,7 @@ end
     s
   end
 
-  @eval @latexrecipe function f(q::T; unitformat = :mathrm) where {T<:AbstractQuantity}
+  @latexrecipe function f(q::T; unitformat = :mathrm) where {T<:AbstractQuantity}
     if unitformat == :mathrm
       return Expr(:latexifymerge, ustrip(q), "\\;", dimension(q))
     end
@@ -45,7 +45,7 @@ end
   end
 
 
-@eval @latexrecipe function f(d::T; unitformat = :mathrm) where {T<:AbstractDimensions}
+  @latexrecipe function f(d::T; unitformat = :mathrm) where {T<:AbstractDimensions}
     return LaTeXString(dims(d,unitformat))
   end
 

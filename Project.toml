@@ -39,8 +39,3 @@ LaTeXStrings = "1"
 julia = "1.6"
 
 [extras]
-# LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-# Measurements = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
-# ScientificTypes = "321657f4-b219-11e9-178b-2701a2544e81"
-# Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
-# LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
