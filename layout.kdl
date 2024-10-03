@@ -1,0 +1,61 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="general" cwd="/home/blabattiii/Projects" {
+		pane split_direction="vertical" {
+			pane name="fish" size="60%"
+			pane name="cheatsheets"
+		}
+    }
+    tab name="DynamicQuantities.jl" cwd="." {
+		floating_panes {
+			pane name="terminal" {
+				x "25%"
+				y "25%"
+				width "50%"
+				height "50%"
+			}
+		}
+		pane split_direction="vertical" {
+			pane stacked=true size="60%" {
+				pane name="src" size="60%" focus=true {
+					command "nvim"
+					args "src/arrays.jl" "src/complex.jl" "src/constants.jl" "src/deprecated.jl" "src/disambiguities.jl" "src/DynamicQuantities.jl" "src/fixed_rational.jl" "src/internal_units.jl" "src/math.jl" "src/register_unit.jl" "src/symbolic_dimensions.jl" "src/types.jl" "src/units.jl" "src/uparse.jl" "src/utils.jl" "src/write_once_read_many.jl"
+				}
+				pane cwd="./test" name="testing" {
+					command "nvim"
+					args "runtests.jl" "test_aqua.jl" "test_ban_upreferred.jl" "test_initial_imports.jl" "test_measurements.jl" "test_meshes.jl" "test_scitypes.jl" "test_unitful.jl" "unittests.jl" "Project.toml" "LocalPreferences.toml"
+				}
+				pane cwd="./" name="environment" {
+					command "nvim"
+					args "layout.kdl" "Project.toml" "README.md" "Manifest.toml" ".gitignore" ".JuliaFormatter.toml" "coverage.jl"
+				}
+				pane cwd="./ext" name="extensions" {
+					command "nvim"
+					args "DynamicQuantitiesLinearAlgebraExt.jl" "DynamicQuantitiesMeasurementsExt.jl" "DynamicQuantitiesScientificTypesExt.jl" "DynamicQuantitiesUnitfulExt.jl" "DynamicQuantitiesLatexifyExt.jl"
+				}
+				pane cwd="./benchmark" name="benchmark" {
+					command "nvim"
+					args "benchmarks.jl" "Project.toml"
+				}
+				pane cwd="./docs" name="documentation" {
+					command "nvim"
+					args "make.jl" "src/api.md" "src/constants.md" "src/examples.md" "src/index_base.md" "src/symbolic_units.md" "src/types.md" "src/units.md"
+				}
+				pane cwd=".github/workflows" name="cicd" {
+					command "nvim"
+					args "CI.yml" "benchmark_pr.yml" "CompatHelper.yml" "TagBot.yml"
+				}
+			}
+			pane name="julia" command="julia"
+		}
+    }
+}
+
