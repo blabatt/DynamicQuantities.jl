@@ -6,12 +6,13 @@ version = "1.1.1"
 [deps]
 Compat = "34da2185-b29b-5c13-b0c7-acf172513d20"
 DispatchDoctor = "8d63f2c5-f18a-4cf2-ba9d-b3f60fc568c8"
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 PackageExtensionCompat = "65ce6f38-6b18-4e1d-a461-8949797d7930"
 TestItems = "1c621080-faea-4a02-84b6-bbd5e436b8fe"
 Tricks = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 
 [weakdeps]
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Measurements = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
@@ -34,8 +35,5 @@ PackageExtensionCompat = "1.0.2"
 ScientificTypes = "3"
 TestItems = "0.1, 1"
 Tricks = "0.1"
-# Unitful = "1"
-# LaTeXStrings = "1"
 julia = "1.6"
-
-[extras]
+LaTeXStrings = "1"
