@@ -8,9 +8,9 @@ export AbstractDimensions, Dimensions, NoDims
 export AbstractSymbolicDimensions, SymbolicDimensions, SymbolicDimensionsSingleton
 export QuantityArray
 export DimensionError
-export ustrip, dimension
+export ustrip, dimension, uexpand, uconvert, ustripexpand
 export ulength, umass, utime, ucurrent, utemperature, uluminosity, uamount
-export uparse, @u_str, sym_uparse, @us_str, uexpand, uconvert, @register_unit
+export uparse, @u_str, sym_uparse, @us_str, @register_unit, aff_uparse, @ua_str
 
 # Deprecated:
 export expand_units
@@ -29,6 +29,7 @@ using DispatchDoctor: @stable
     include("constants.jl")
     include("uparse.jl")
     include("symbolic_dimensions.jl")
+    include("affine_dimensions.jl")
     include("complex.jl")
     include("register_units.jl")
     include("disambiguities.jl")
@@ -37,7 +38,6 @@ using DispatchDoctor: @stable
 end
 
 
-import PackageExtensionCompat: @require_extensions
 import .Units
 import .Constants
 import .UnitsParse: uparse, @u_str
@@ -53,8 +53,7 @@ let _units_import_expr = :(using .Units: m, g)
     eval(_units_import_expr)
 end
 
-function __init__()
-    @require_extensions
-end
+# Include precompilation directives
+include("precompile.jl")
 
 end

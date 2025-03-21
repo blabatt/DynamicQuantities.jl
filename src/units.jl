@@ -106,7 +106,7 @@ end
 @_lazy_register_unit M mol / dm^3
 
 @add_prefixes Hz (n, μ, u, m, k, M, G)
-@add_prefixes N ()
+@add_prefixes N (μ, u, m, k)
 @add_prefixes Pa (k,)
 @add_prefixes J (k,)
 @add_prefixes W (m, k, M, G)
@@ -127,7 +127,7 @@ end
     Hz,
 )
 @doc(
-    "Force in Newtons.",
+    "Force in Newtons. Available variants: `μN` (/`uN`), `mN`, `kN`.",
     N,
 )
 @doc(
@@ -214,12 +214,24 @@ end
 
 ## Pressure
 @_lazy_register_unit bar 100 * kPa
+@_lazy_register_unit Torr 101325//760 * Pa
+@_lazy_register_unit mmHg Torr
 
 @add_prefixes bar (m,)
+@add_prefixes Torr (m,)
+@add_prefixes mmHg ()
 
 @doc(
     "Pressure in bars. Available variants: `mbar`.",
     bar,
+)
+@doc(
+    "Pressure in Torr. Available variants: `mTorr`.",
+    Torr,
+)
+@doc(
+    "Pressure in mmHg.",
+    mmHg,
 )
 
 ## Angles
